@@ -1,0 +1,33 @@
+.cal-view {
+    position: relative;
+    left: 5%;
+    width: 90%;
+    margin-top: 1em;
+}
+
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-md-4 h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.btn-group {
+    display: inline-flex;
+}
+
+.btn-group .btn {
+    border: 1px solid rgb(187, 187, 187);
+    font-size: 1.2em;
+    padding: 0.2em 0.5em;
+    margin: 0 0.1em;
+    cursor: pointer;
+}
+
+.btn-group .btn-primary {
+    color: white;
+    background-color: rgb(68, 68, 255);
+}

@@ -1,0 +1,60 @@
+<div class="todo-card">
+    <header>
+        <h1>{{title}}</h1>
+    </header>
+    <form class="todo-input-form" (submit)="addToDo()">
+        <div class="todo-datetime">
+            <mat-form-field class="todo-date" appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" name="inputDate" [(ngModel)]="inputDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <div class="todo-time"><ngx-mat-timepicker-field name="inputTime" [(ngModel)]="inputTime"></ngx-mat-timepicker-field></div>
+        </div>
+
+        <input
+            class = "todo-content"
+            type = "text"
+            name = "inputToDo"
+            placeholder = "Enter an event..."
+            [(ngModel)] = "inputToDo"
+        />
+        <input class="todo-submit" type="image" src="./../../assets/plus-icon.png" alt="Submit"/>
+
+    </form>
+    
+    <div class="todos" *ngFor = "let todo of todos; let i = index;">
+        <div class='todo {{ (todo.completed ? "done" : "") }}'>
+            <div class="id">{{i}}</div>
+            <!--<div class="datetime">{{todo.datetime[0]}} {{todo.datetime[1]}} {{todo.datetime[2]}} <br> {{todo.datetime[3]}}</div>-->
+            <div class="datetime">{{todo.strdatetime}}</div>
+            <div class="content">{{todo.content}}</div>
+            <button class="btn" (click)="toggleDone(i)"><img src="./../../assets/checkmark-icon.png"/></button>
+            <button class="btn" (click)="delToDo(i)"><img src="./../../assets/trash-icon.png"/></button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--
+<div>
+    <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date and time" [(ngModel)]="inputDate"/>
+        <mat-datepicker-toggle matSuffix [for]='$any("picker")'></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false"
+                         [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                         [touchUi]="false" [enableMeridian]="false"
+                         [disableMinute]="false" [hideTime]="false">
+        </ngx-mat-datetime-picker>
+     </mat-form-field>
+</div>
+-->
+
