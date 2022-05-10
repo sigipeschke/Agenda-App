@@ -1,19 +1,18 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 import { ToDo } from "./ToDo/todo";
+import { CalendarEvent } from 'angular-calendar';
 
 
 @Injectable()
 
-export class dataService {
-    list: ToDo[] = [];
-    
+export class DataService {
+    private listSource = new BehaviorSubject<CalendarEvent[]>([]);
+    curList = this.listSource.asObservable();
+
     constructor() {}
 
-    getUserData() {
-        return this.list;
-    }
-
-    setUserData(data:ToDo[]) {
-        this.list = data;
+    changeUserData(data:CalendarEvent[]) {
+        this.listSource.next(data);
     }
 }

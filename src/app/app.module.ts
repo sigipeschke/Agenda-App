@@ -13,11 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToDoComponent } from './ToDo/todo.component';
 import { CalendarComponent } from './Calendar/calendar.component';
-import { dataService } from './dataservice';
+import { DataService } from './dataservice';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { AgendaComponent } from './Agenda/agenda.component';
 
 
 @NgModule({
@@ -25,7 +24,6 @@ import { AgendaComponent } from './Agenda/agenda.component';
     AppComponent,
     ToDoComponent,
     CalendarComponent,
-    AgendaComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +41,7 @@ import { AgendaComponent } from './Agenda/agenda.component';
       useFactory: adapterFactory
     }),
   ],
-  providers: [dataService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 

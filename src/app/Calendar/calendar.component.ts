@@ -2,7 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { CalendarView, CalendarEvent } from 'angular-calendar';
-import { dataService } from "../dataservice";
+import { DataService } from "../dataservice";
 
 @Component({
   selector: 'pm-calendar',
@@ -16,20 +16,10 @@ export class CalendarComponent implements OnInit {
 
   events: CalendarEvent[] = [];
 
-  constructor(private _userData: dataService) {}
+  constructor(private _userData: DataService) {}
 
   ngOnInit(): void {
-    this.fetchDataFromService();
-  }
-
-  fetchDataFromService() {
-    const data = this._userData.getUserData();
-    for (let e of data) {
-      this.events.push({
-        start: e.datetime,
-        title: e.content
-      });
-    }
+    this._userData.curList.subscribe(list => this.events = list);
   }
 
   setView(view: CalendarView) {
@@ -37,7 +27,6 @@ export class CalendarComponent implements OnInit {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    console.log(date);
     this.viewDate = date;
     this.setView(CalendarView.Day);
   }
