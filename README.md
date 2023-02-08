@@ -1,27 +1,29 @@
-# Calendar
+# Agenda Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+## Description
 
-## Development server
+This application combines a to-do list with a calendar to make a full agenda. Select a date and input a to-do item. The item is then shown in the calendar as well as a list of your upcoming to-do items.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+My first solo project in Angular, which combines custom components with library components using template forms and observables.
 
-## Code scaffolding
+## Components
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To-Do Component: Contains the list of to-do's and input form. The form combines a text field with the Datepicker component from the Angular Materials library.
 
-## Build
+Data Service: A service which streams the items in the list of to-do's to the Calendar component.
+
+Calendar Component: Presents the to-do's list in a calendar view using the CalendarView and CalendarEvent components from the Angular Calendar library.
+
+## Getting Started
+
+### Install dependencies
+
+Run `npm install`
+
+### Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
